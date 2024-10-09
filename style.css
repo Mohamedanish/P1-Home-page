@@ -1,0 +1,162 @@
+/* Remove default margins and padding from all elements on the page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the navigation area */
+.navigation {
+    background-color: black; /* Set the background color to black */
+    padding: 10px; /* Add some space inside the navigation area */
+    display: flex;
+    justify-content: space-between; /* Space between navigation and content */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Style for the h1 inside the navigation */
+.navigation h1 {
+    display: inline-block; /* Makes the heading display inline */
+    font-family: cursive; /* Sets the font style to cursive */
+    font-weight: 900; /* Makes the font bold */
+    color: white; /* Changes the text color to white */
+    font-size: 2em; /* Sets the font size */
+    margin-left: 20px; /* Adds margin to the left of the heading */
+    transition: font-size 0.5s, color 0.5s; /* Adds transitions for font size and color */
+}
+
+/* Style for the unordered list (ul) */
+ul {
+    list-style-type: none; /* Removes bullet points from list items */
+    display: inline-block; /* Aligns items inline */
+    margin-right: 20px; /* Adds margin to the right */
+}
+
+/* Style for the list items (li) */
+li {
+    display: inline-block; /* Makes these elements appear next to each other horizontally */
+    margin-right: 15px; /* Adds spacing between navigation items */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Sets the font family */
+    color: grey; /* Makes the text color grey */
+    font-size: 1.2em;
+    transition: color 0.5s, font-size 0.5s; /* Smooth transition for hover effect */
+}
+
+/* Add hover effect for the h1 inside the navigation */
+.navigation h1:hover {
+    font-size: 2.5em; /* Makes the font size bigger when hovered over */
+    color: rgb(11, 82, 235); /* Changes the color to blue */
+    cursor: grabbing; /* Changes the cursor to a grabbing hand */
+}
+
+/* Add hover effect for the list items (li) */
+li:hover {
+    color: white; /* Changes the text color to white when hovered over */
+    font-size: 1.5em; /* Increases the font size when hovered over */
+    cursor: pointer; /* Changes the cursor to a pointer (hand) when hovered */
+}
+
+/* Set the background of the body with a gradient */
+body {
+    background: linear-gradient(to right, rgb(0, 110, 255), rgb(238, 4, 148)); /* Creates a gradient background from blue to pink */
+    font-family: Arial, Helvetica, sans-serif; /* Base font */
+}
+
+/* Style for the content box section */
+.contentbox {
+    height: 200px; /* Sets the height */
+    width: 500px; /* Fixed width */
+    margin: 10px auto; /* Center the content box horizontally */
+    display: flex; /* Aligns items inside using Flexbox */
+    align-items: center; /* Centers items vertically */
+    justify-content: center; /* Centers items horizontally */
+    padding: 25px; /* Adds space inside the content box */
+    border-radius: 10px; /* Rounds corners */
+}
+
+/* Style for the h2 inside the content box */
+.contentbox h2 {
+    color: rgba(255, 255, 255, 0.8); /* Sets the text color to semi-transparent white */
+    font-size: 7em; /* Large font size */
+    font-family: monospace; /* Sets the font style */
+    animation-name: welcome; /* Links the animation named 'welcome' to this element */
+    animation-duration: 5s; /* The animation will last 5 seconds */
+    animation-timing-function: ease-in-out; /* The animation speed changes smoothly */
+}
+
+/* Define the keyframe animation named 'welcome' */
+@keyframes welcome {
+    from { margin-right: 150px; } /* Starts with the text shifted 150px to the right */
+    to { margin-right: 0; } /* Ends with the text in its original position */
+}
+
+/* Media Queries for Full Responsiveness */
+
+/* For large screens (desktops and large laptops) */
+@media (min-width: 1200px) {
+    .navigation {
+        flex-direction: row;
+    }
+    .contentbox {
+        margin-left: 55%; /* Keep the contentbox on the right side */
+    }
+}
+
+/* For medium screens (laptops and tablets in landscape) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .navigation {
+        flex-direction: row;
+    }
+    .contentbox {
+        width: 90%; /* Adjust width for medium screens */
+        max-width: 500px; /* Ensure max width */
+        margin-left: 50%; /* Slightly reduce the margin for smaller screens */
+    }
+    .contentbox h2 {
+        font-size: 5em; /* Adjust font size for smaller screens */
+    }
+}
+
+/* For tablets and small screens */
+@media (min-width: 481px) and (max-width: 767px) {
+    .navigation {
+        flex-direction: column; /* Stack navigation vertically */
+        text-align: center; /* Center the text */
+    }
+    ul {
+        margin: 20px 0; /* Add margin to the top and bottom */
+    }
+    .contentbox {
+        width: 90%; /* Allow more width for small screens */
+        margin-left: 0; /* No margin to the left */
+        margin-top: 20px;
+    }
+    .contentbox h2 {
+        font-size: 3em; /* Reduce font size on tablets */
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+    .navigation {
+        flex-direction: column; /* Stack navigation vertically */
+        text-align: center;
+    }
+    ul {
+        margin-top: 20px;
+        margin-left: 0; /* Center the menu */
+    }
+    li {
+        display: block; /* Stack navigation items */
+        text-align: center;
+        margin: 10px 0;
+    }
+    .contentbox {
+        width: 90%; /* Allow more width for small screens */
+        margin: 20px auto; /* Center contentbox on mobile */
+    }
+    .contentbox h2 {
+        font-size: 2em; /* Reduce font size for mobile */
+    }
+}
